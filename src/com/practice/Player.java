@@ -16,39 +16,7 @@ public class Player implements ISaveable {
         this.weapon = "Sword";
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getWeapon() {
-        return weapon;
-    }
-
-    public int getHitPoints() {
-        return hitPoints;
-    }
-
-    public int getStrength() {
-        return strength;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setWeapon(String weapon) {
-        this.weapon = weapon;
-    }
-
-    public void setHitPoints(int hitPoints) {
-        this.hitPoints = hitPoints;
-    }
-
-    public void setStrength(int strength) {
-        this.strength = strength;
-    }
-
-    @Override
+    @Override //without this, save() will save only the object hashcode!!!!
     public String toString() {
         return "Player{" +
                 "name='" + name + '\'' +
@@ -59,7 +27,7 @@ public class Player implements ISaveable {
     }
 
     @Override //saving
-    public List<String> save() {
+    public List<String> save() { //List<String> will make this method flexible
         List<String> listOfFields = new LinkedList<>();
         String[] tokens = toString().split("[{}]");
 
