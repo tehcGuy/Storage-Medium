@@ -1,4 +1,7 @@
 package com.practice;
+
+import java.util.List;
+
 /*Create a simple interface that allows an object to be saved to some sort of storage medium.
 
 Implement the following:
@@ -14,8 +17,8 @@ A constructor that accepts a String (name) and two ints (hitPoints and strength)
 hitPoints and strength with the newly passed in values. It initialises weapon with the default weapon "Sword".
 And eleven methods:
 Getters and setters for all four fields.
-write(), same as interface. Return a List of the fields in the order they appear in toString().
-read(), same as interface. Store the values in the List, in the order they appear in toString(). Make sure the List
+write(), same as interface. Return a List of the fields in the order they appear in toString(). +
+read(), same as interface. Store the values in the List, in the order they appear in toString(). Make sure the List +
 is not null and the size() is greater than 0 before storing the values.
 toString(), Players overriding toString() method. It takes no arguments and returns a String in the following format:
 Player{name='Tim', hitPoints=10, strength=15, weapon='Sword'}
@@ -45,8 +48,18 @@ the constructor has the right arguments.
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
-        Player obj = new Player("queer",1,0);
-        obj.test();
+        Player player1 = new Player("queer",1,0);
+        List<String> playerSaving;
+
+        playerSaving = player1.save();
+        player1.print(playerSaving);
+
+        Monster monster1 = new Monster("Chubakabra", 20, 15);
+        List<String> chubSaving;
+
+        chubSaving = monster1.save();
+        for(String e : chubSaving){
+            System.out.println(e);
+        }
     }
 }
